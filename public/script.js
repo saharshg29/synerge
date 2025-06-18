@@ -166,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     shareBtn.addEventListener('click', () => {
         const { round, score, timeInSeconds } = finalGameResults;
-        const text = `We achieved Synergy in ${round} round(s) with a score of ${score} in just ${timeInSeconds}s! Can you beat our record?%0A%0APlay Synerge now!%0A%0A%23SynergeGame`;
+        const text = `We achieved Synergy in ${round} round(s) with a score of ${score} in just ${timeInSeconds}s! Can you beat our record?%0A%0APlay Synerge now AT: https://synerge-og8z.onrender.com/! %0A%0A%23SynergeGame`;
         const twitterUrl = `https://twitter.com/intent/tweet?text=${text}`;
         window.open(twitterUrl, '_blank');
     });
