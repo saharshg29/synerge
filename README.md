@@ -6,7 +6,7 @@
 
 This game is built with pure HTML, CSS, and vanilla JavaScript on the frontend, powered by a Node.js, Express, and Socket.IO backend.
 
-**[▶️ Play the Live Demo Here!](https://your-app-name.onrender.com)** <!-- Replace with your live Render URL -->
+**[▶️ Play the Live Demo Here!](https://synerge-og8z.onrender.com/)** <!-- Replace with your live Render URL -->
 
 ---
 
