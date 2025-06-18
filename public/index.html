@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synerge - Mode B</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Library for capturing HTML as an image -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <div id="app-container">
+        <!-- Landing Screen -->
+        <div id="landing-screen" class="screen active">
+            <div class="content-wrapper">
+                <h1 class="title">Synerge</h1>
+                <p class="subtitle">A game of collective intuition.</p>
+                <div class="name-input-container">
+                    <label for="playerName">Enter Your Name</label>
+                    <input type="text" id="playerName" placeholder="e.g., Alex" maxlength="12">
+                </div>
+                <button id="createRoomBtn" class="btn btn-primary">Create Room</button>
+                <div class="join-container">
+                    <input type="text" id="joinRoomInput" placeholder="Enter Room Code">
+                    <button id="joinRoomBtn" class="btn btn-secondary">Join</button>
+                </div>
+                <a href="/how-to-play.html" class="how-to-play-link">How to Play?</a>
+                <p id="error-message" class="error"></p>
+            </div>
+        </div>
+
+        <!-- Lobby Screen -->
+        <div id="lobby-screen" class="screen">
+             <div class="content-wrapper">
+                <h2>Lobby</h2>
+                <p>Room Code: <strong id="roomCodeDisplay"></strong> <button id="copyCodeBtn">📋</button></p>
+                <div id="player-list"></div>
+                <div id="host-controls">
+                    <button id="startGameBtn" class="btn btn-primary">Start Game</button>
+                </div>
+                <p id="lobby-status">Waiting for the host to start the game...</p>
+            </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="game-screen" class="screen">
+            <div class="content-wrapper">
+                <div id="game-header">
+                    <h2 id="round-title">Round 1</h2>
+                    <div id="timer-container">
+                        <div id="timer-progress"></div>
+                        <span id="timer-display">45</span>
+                    </div>
+                </div>
+                <p class="instruction-text">Choose a number (1-10)</p>
+                <div id="number-grid"></div>
+                <p id="choice-status">Waiting for other players...</p>
+            </div>
+        </div>
+
+        <!-- Reveal Screen -->
+        <div id="reveal-screen" class="screen">
+            <div class="content-wrapper">
+                <h2>The Reveal...</h2>
+                <div id="reveal-area"></div>
+                <p id="reveal-status" class="reveal-status-text"></p>
+            </div>
+        </div>
+
+        <!-- Final Success Screen -->
+        <div id="success-screen" class="screen">
+            <!-- This wrapper is what gets captured as an image -->
+            <div id="results-card" class="content-wrapper">
+                <h2 class="success-title">Synergy Achieved!</h2>
+                <div class="final-stats">
+                    <p>Rounds<strong id="final-rounds-display"></strong></p>
+                    <p>Total Time<strong id="total-time-display"></strong></p>
+                    <p>Score<strong id="final-score-display"></strong></p>
+                </div>
+                <div class="results-actions">
+                    <button id="downloadBtn" class="btn btn-secondary">Download Results</button>
+                    <button id="shareBtn" class="btn btn-twitter">Share on Twitter</button>
+                </div>
+            </div>
+            <!-- Controls outside the captured card -->
+            <div id="host-end-game-controls" style="margin-top: 1.5rem;">
+                 <button id="playAgainBtn" class="btn btn-primary">Play Again</button>
+            </div>
+            <p id="guest-end-game-status" style="margin-top: 1.5rem;">Waiting for the host to start a new game...</p>
+        </div>
+    </div>
+    
+    <div id="toast-notification" class="toast"></div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
